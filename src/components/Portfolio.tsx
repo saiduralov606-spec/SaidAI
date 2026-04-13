@@ -189,7 +189,7 @@ const About = () => {
               
               <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-soft border-8 border-white">
                 <img 
-                  src="https://picsum.photos/seed/professional-said/800/1000" 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
                   alt="Said - AI Developer" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
