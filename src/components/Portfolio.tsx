@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Bot, Zap, Code, BarChart3, MessageSquare, ArrowRight, Github, Twitter, Linkedin, CheckCircle2, Sparkles, Layers, MousePointer2, Users, Send, User } from "lucide-react";
+import { Bot, Zap, Code, BarChart3, MessageSquare, ArrowRight, Github, Twitter, Linkedin, CheckCircle2, Sparkles, Layers, MousePointer2, Users, Send, User, TrendingUp, Activity } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // --- Components ---
@@ -68,51 +68,185 @@ const Navbar = ({ onDashboardClick }: { onDashboardClick: () => void }) => {
   );
 };
 
+const DashboardMockup = () => {
+  return (
+    <div className="relative w-full max-w-2xl mx-auto">
+      {/* Main Dashboard Window */}
+      <motion.div 
+        initial={{ opacity: 0, y: 40, rotateX: 10 }}
+        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden relative z-10"
+      >
+        {/* Window Header */}
+        <div className="h-12 bg-slate-50 border-b border-slate-100 flex items-center px-6 gap-2">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+            <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+            <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+          </div>
+          <div className="mx-auto text-[10px] font-bold text-slate-400 uppercase tracking-widest">AI Systems Dashboard</div>
+        </div>
+
+        {/* Window Content */}
+        <div className="p-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+              <div className="flex items-center justify-between mb-2">
+                <Users className="text-blue-600 w-5 h-5" />
+                <span className="text-[10px] font-bold text-blue-600 bg-white px-2 py-0.5 rounded-full">+12%</span>
+              </div>
+              <div className="text-2xl font-bold text-slate-900">1,284</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Active Users</div>
+            </div>
+            <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+              <div className="flex items-center justify-between mb-2">
+                <TrendingUp className="text-emerald-600 w-5 h-5" />
+                <span className="text-[10px] font-bold text-emerald-600 bg-white px-2 py-0.5 rounded-full">Live</span>
+              </div>
+              <div className="text-2xl font-bold text-slate-900">$42.5k</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Revenue Growth</div>
+            </div>
+          </div>
+
+          {/* Chart Mockup */}
+          <div className="space-y-4">
+            <div className="h-32 w-full bg-slate-50 rounded-2xl relative overflow-hidden">
+              <svg viewBox="0 0 400 100" className="absolute bottom-0 left-0 w-full h-full">
+                <path 
+                  d="M0 80 Q 50 70, 100 40 T 200 60 T 300 20 T 400 40 V 100 H 0 Z" 
+                  fill="url(#gradient)" 
+                  className="opacity-20"
+                />
+                <path 
+                  d="M0 80 Q 50 70, 100 40 T 200 60 T 300 20 T 400 40" 
+                  fill="none" 
+                  stroke="#3b82f6" 
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <defs>
+                  <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div className="flex justify-between px-2">
+              {[1,2,3,4,5,6,7].map(i => <div key={i} className="w-1 h-4 bg-slate-100 rounded-full" />)}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Floating Elements */}
+      <motion.div 
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-12 -right-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20 flex items-center gap-3"
+      >
+        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+          <Bot size={20} />
+        </div>
+        <div>
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">AI Agent</div>
+          <div className="text-xs font-bold text-slate-900">Processing Leads...</div>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        animate={{ y: [0, 15, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute -bottom-8 -left-8 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20 flex items-center gap-3"
+      >
+        <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+          <Zap size={20} />
+        </div>
+        <div>
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Automation</div>
+          <div className="text-xs font-bold text-slate-900">Task Completed</div>
+        </div>
+      </motion.div>
+
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-400/10 rounded-full blur-[100px] -z-10" />
+    </div>
+  );
+};
+
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-white">
       {/* Background Decoration */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl opacity-50 -z-10" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-slate-50 rounded-full blur-3xl opacity-50 -z-10" />
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[1000px] h-[1000px] bg-blue-50 rounded-full blur-[120px] opacity-60 -z-10" />
+      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[800px] h-[800px] bg-slate-50 rounded-full blur-[120px] opacity-60 -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-wide uppercase mb-8">
-            <Sparkles className="w-3.5 h-3.5" />
-            Said — AI Systems Builder
-          </div>
-          
-          <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            I build AI systems that <br className="hidden md:block" /> 
-            <span className="text-blue-600">automate and grow</span> your business
-          </h1>
-          
-          <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            I help businesses save time, reduce manual work, and increase revenue using AI automation.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-2">
-              Get Your AI System
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold text-lg hover:bg-slate-50 transition-all">
-              View Demo
-            </button>
-          </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          {/* Left Side: Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7 text-left"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-widest uppercase mb-8 border border-blue-100/50">
+              <Sparkles className="w-3.5 h-3.5" />
+              Said — Premium AI Solutions
+            </div>
+            
+            <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.05]">
+              Automate your business with AI — <span className="text-blue-600 relative">
+                save time, increase revenue
+                <svg className="absolute -bottom-2 left-0 w-full h-3 text-blue-200 -z-10" viewBox="0 0 400 20" fill="none">
+                  <path d="M5 15C100 5 300 5 395 15" stroke="currentColor" strokeWidth="8" strokeLinecap="round"/>
+                </svg>
+              </span>
+            </h1>
+            
+            <p className="text-slate-600 text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-medium">
+              I build smart AI systems that replace manual work and deliver real results.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
+              <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-all shadow-2xl shadow-blue-200 flex items-center justify-center gap-3 group">
+                Get Your AI System
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white border border-slate-200 text-slate-700 font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
+                See How It Works
+              </button>
+            </div>
 
-          <div className="flex justify-center items-center gap-6 text-slate-400 font-bold text-sm uppercase tracking-widest">
-            <span>20+ projects</span>
-            <div className="w-1 h-1 bg-slate-300 rounded-full" />
-            <span>1000+ users</span>
-            <div className="w-1 h-1 bg-slate-300 rounded-full" />
-            <span>Real results</span>
-          </div>
-        </motion.div>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-slate-400 font-bold text-xs uppercase tracking-[0.2em]">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                <span>20+ projects</span>
+              </div>
+              <div className="w-1.5 h-1.5 bg-slate-200 rounded-full hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                <span>1000+ users</span>
+              </div>
+              <div className="w-1.5 h-1.5 bg-slate-200 rounded-full hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                <span>Real results</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Side: Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5 relative"
+          >
+            <DashboardMockup />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
