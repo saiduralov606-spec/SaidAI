@@ -1,0 +1,24 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="white"/>
+  <g transform="translate(50, 150)">
+    <!-- Speech Bubble -->
+    <path d="M20 0C8.95431 0 0 8.95431 0 20V120C0 131.046 8.95431 140 20 140H40V170L80 140H140C151.046 140 160 131.046 160 120V20C160 8.95431 151.046 0 140 0H20Z" stroke="#3B82F6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Neural Network Nodes -->
+    <!-- Node 1 (Left Square) -->
+    <rect x="35" y="45" width="25" height="25" rx="4" stroke="#3B82F6" stroke-width="8" stroke-linejoin="round"/>
+    <!-- Node 2 (Right Top Circle) -->
+    <circle cx="110" cy="45" r="15" stroke="#3B82F6" stroke-width="8"/>
+    <!-- Node 3 (Right Bottom Square) -->
+    <rect x="97.5" y="95" width="25" height="25" rx="4" stroke="#3B82F6" stroke-width="8" stroke-linejoin="round"/>
+    
+    <!-- Connections -->
+    <path d="M60 57.5H80C85 57.5 85 45 90 45H95" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 57.5H80C85 57.5 85 107.5 90 107.5H97.5" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="105" r="6" fill="#3B82F6"/>
+    <path d="M50 105V85C50 75 45 70 40 70" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="230" y="315" fill="#3B82F6" font-family="Outfit, sans-serif" font-size="110" font-weight="bold" letter-spacing="-0.02em">SAID.AI</text>
+</svg>
