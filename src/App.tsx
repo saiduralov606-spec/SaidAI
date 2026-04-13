@@ -4,7 +4,7 @@
  */
 
 import { useState } from "react";
-import { Navbar, Hero, About, Services, HowItWorks, Project, CTA, Footer } from "./components/Portfolio";
+import { Navbar, Hero, ProofSection, About, Services, HowItWorks, VideoDemo, Project, CTA, Footer } from "./components/Portfolio";
 import DashboardUI from "./components/DashboardUI";
 
 export default function App() {
@@ -19,9 +19,11 @@ export default function App() {
       <Navbar onDashboardClick={() => setView("dashboard")} />
       <main>
         <Hero />
+        <ProofSection />
         <About />
         <Services />
         <HowItWorks />
+        <VideoDemo />
         <Project />
         <CTA />
       </main>
